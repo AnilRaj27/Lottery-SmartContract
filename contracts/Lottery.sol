@@ -39,11 +39,15 @@ contract Lottery {
             players.length >= 3,
             "Not enough players to conduct the lottery, Atleast 3 are needed"
         );
+
         uint256 r = random();
         uint256 index = r % players.length;
         address payable winner;
-        winner = players[index];
 
+        winner = players[index];
         winner.transfer(getBalance());
+
+        // as the money tranferred to winner, resetting the lottery
+        players = new address payable[](0);
     }
 }
