@@ -1,3 +1,6 @@
 pragma solidity 0.8.12;
 
-contract Lottery {}
+contract Lottery {
+    address payable[] public players;
+    
+}
